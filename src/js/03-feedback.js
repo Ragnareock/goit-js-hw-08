@@ -11,6 +11,9 @@ formEl.addEventListener('input', throttle(onTextareaInput, 500));
 populateTextarea();
 
 function onFormSubmit(e) {
+  if (formEl.email.value === '' || formEl.message.value === '') {
+    return alert('All fields must be filled');
+  }
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   e.preventDefault();
   e.currentTarget.reset();
